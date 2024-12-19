@@ -1,2 +1,4 @@
 # vimrc
-vimrc configuration file
+vimrc configuration file for VIM
+- Windows: _vimrc
+- Linux: .vimrc
