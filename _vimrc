@@ -3,55 +3,55 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 
 set enc=utf8
-set guifont=JetBrains_Mono:h11
+set guifont=Ubuntu\ Mono\ 13
 set nobackup
-set noswapfile
 set noundofile
-set hlsearch " °Ë»ö¾î ÇÏÀÌ¶óÀÌÆÃ
-set nu " ÁÙ¹øÈ£
-set autoindent " ÀÚµ¿ µé¿©¾²±â
+set hlsearch " search result highlighting
+set nu
+set autoindent
 set scrolloff=2
 set wildmode=longest,list
 set ts=4 "tag select
 set sts=4 "st select
-set sw=1 " ½ºÅ©·Ñ¹Ù ³Êºñ
-set autowrite " ´Ù¸¥ ÆÄÀÏ·Î ³Ñ¾î°¥ ¶§ ÀÚµ¿ ÀúÀå
-set autoread " ÀÛ¾÷ ÁßÀÎ ÆÄÀÏ ¿ÜºÎ¿¡¼­ º¯°æ‰çÀ» °æ¿ì ÀÚµ¿À¸·Î ºÒ·¯¿È
-set cindent " C¾ğ¾î ÀÚµ¿ µé¿©¾²±â
+set sw=1 " scroll width
+set autowrite " store automatically when change to other file
+set autoread " ì‘ì—… ì¤‘ì¸ íŒŒì¼ ì™¸ë¶€ì—ì„œ ë³€ê²½ë¬ì„ ê²½ìš° ìë™ìœ¼ë¡œ ë¶ˆëŸ¬ì˜´
+set cindent " C language auto indent
 set bs=eol,start,indent
 set history=256
-set laststatus=2 " »óÅÂ¹Ù Ç¥½Ã Ç×»ó
-"set paste " ºÙ¿©³Ö±â °è´ÜÇö»ó ¾ø¾Ö±â
-set shiftwidth=4 " ÀÚµ¿ µé¿©¾²±â ³Êºñ ¼³Á¤
-set showmatch " ÀÏÄ¡ÇÏ´Â °ıÈ£ ÇÏÀÌ¶óÀÌÆÃ
-set smartcase " °Ë»ö½Ã ´ë¼Ò¹®ÀÚ ±¸º°
+set laststatus=2 " always show status bar
+"set paste " remove stair phenomenon when paste
+set shiftwidth=4 " width for automatic indent width
+set showmatch " matched bracket highlighting
+set smartcase " distinct case when search
 set expandtab
 set smarttab
 set smartindent
 set softtabstop=4
 set tabstop=4
-set ruler " ÇöÀç Ä¿¼­ À§Ä¡ Ç¥½Ã
+set ruler " show current cursor location
 set incsearch
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
-
-"set encoding=cp949
-set fileencodings=utf-8,euc-kr
-"set langmenu=cp949
-
-
-" ¸¶Áö¸·À¸·Î ¼öÁ¤µÈ °÷¿¡ Ä¿¼­¸¦ À§Ä¡ÇÔ
+" locate cursor at last modified position
 au BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
 \ exe "norm g`\"" |
 \ endif
-
-" ±¸¹® °­Á¶ »ç¿ë
+" file encoding as Korean
+if $LANG[0]=='k' && $LANG[1]=='o'
+set fileencoding=korea
+endif
+" 
 if has("syntax")
  syntax on
 endif
-" ÄÃ·¯ ½ºÅ´ »ç¿ë
-colorscheme slate
+" 
+"colorscheme slate
+colorscheme jellybeans
 set sm
 set exrc
 
+
 autocmd BufNewFile,BufRead Makefile,makefile set noexpandtab
+
+au BufNewFile,BufRead *.resc setfiletype resc
