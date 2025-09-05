@@ -3,7 +3,7 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 
 set enc=utf8
-set guifont=Ubuntu\ Mono\ 13
+set guifont=Ubuntu\ Mono:h13
 set nobackup
 set noundofile
 set hlsearch " search result highlighting
@@ -55,3 +55,4 @@ set exrc
 autocmd BufNewFile,BufRead Makefile,makefile set noexpandtab
 
 au BufNewFile,BufRead *.resc setfiletype resc
+
